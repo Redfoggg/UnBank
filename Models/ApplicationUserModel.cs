@@ -10,7 +10,7 @@ namespace UnBank.models
     public class ApplicationsUserModel 
     {
         public string Email  { get; set; }
-        public string Password { get; set; }
+        public string Senha { get; set; }
         public string Nome {get; set;}
         public long Cpf {get; set;}
         

@@ -12214,6 +12214,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
+      "Microsoft.AspNetCore.Cors >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "NpgSql.EntityFrameworkCore.PostgreSQL.Design >= 1.1.1",
@@ -12227,11 +12228,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\david\\Desktop\\UnBank\\UnBank.csproj",
+      "projectUniqueName": "C:\\Users\\david\\Desktop\\project\\UnBank\\UnBank.csproj",
       "projectName": "UnBank",
-      "projectPath": "C:\\Users\\david\\Desktop\\UnBank\\UnBank.csproj",
+      "projectPath": "C:\\Users\\david\\Desktop\\project\\UnBank\\UnBank.csproj",
       "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\david\\Desktop\\UnBank\\obj\\",
+      "outputPath": "C:\\Users\\david\\Desktop\\project\\UnBank\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12266,6 +12267,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Cors": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",

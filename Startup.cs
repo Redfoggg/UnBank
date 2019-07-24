@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using UnBank.models;
 
 namespace UnBank
@@ -44,8 +47,31 @@ namespace UnBank
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 5;
             });
-            
-
+            services.AddCors();
+            //configurações do autenticador JWT
+            //a chave deve ter 16 caracteres segundo JWT
+            var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings: JWT_Key"].ToString());
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x => {
+                //Tirando a restrição para só responder a requisições HTTPS, afinal minha aplicação é sem S
+                x.RequireHttpsMetadata = false;
+                //não salvar o token no servidor.
+                x.SaveToken = false;
+                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    //dar a chave secreta
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    // não existe diferença temporal entre client side e server side neste caso especifico.
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -60,7 +86,7 @@ namespace UnBank
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            app.UseCors(builder => builder.WithOrigins(Configuration["ApplicationSettings: Client_Url"].ToString()).AllowAnyHeader().AllowAnyMethod());
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

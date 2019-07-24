@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\david\\Desktop\\UnBank\\UnBank.csproj": {}
+    "C:\\Users\\david\\Desktop\\project\\UnBank\\UnBank.csproj": {}
   },
   "projects": {
-    "C:\\Users\\david\\Desktop\\UnBank\\UnBank.csproj": {
+    "C:\\Users\\david\\Desktop\\project\\UnBank\\UnBank.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\david\\Desktop\\UnBank\\UnBank.csproj",
+        "projectUniqueName": "C:\\Users\\david\\Desktop\\project\\UnBank\\UnBank.csproj",
         "projectName": "UnBank",
-        "projectPath": "C:\\Users\\david\\Desktop\\UnBank\\UnBank.csproj",
+        "projectPath": "C:\\Users\\david\\Desktop\\project\\UnBank\\UnBank.csproj",
         "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\david\\Desktop\\UnBank\\obj\\",
+        "outputPath": "C:\\Users\\david\\Desktop\\project\\UnBank\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",

@@ -34,11 +34,11 @@ namespace UnBank.Controllers
                 Cpf = model.Cpf,
                 PhoneNumber = model.PhoneNumber
             };
-            //password não é especificado aqui pois deve ser incriptado.
+            //password não é especificado aqui pois deve ser encriptado.
             try
             {
-                //tenta criar o usuario com o uso da função CreateAsync
-                var result = await _userManager.CreateAsync(applicationUser, model.Password);
+                //tenta criar o usuario com o uso da função CreateAsync, método await por ser um método Async
+                var result = await _userManager.CreateAsync(applicationUser, model.Senha);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -47,5 +47,9 @@ namespace UnBank.Controllers
                 throw ex;
             }
         }
+        [HttpPost]
+        [Route("Login")]
+        //POST: api/ApplicationUser/Login
+        
     }
 }
