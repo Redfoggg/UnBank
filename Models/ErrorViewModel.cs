@@ -1,6 +1,6 @@
 using System;
 
-namespace UnBank.Models
+namespace UnBank.models
 {
     public class ErrorViewModel
     {

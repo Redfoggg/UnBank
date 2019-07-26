@@ -19,12 +19,12 @@ using UnBank;
 #line default
 #line hidden
 #line 2 "C:\Users\david\Desktop\project\UnBank\Views\_ViewImports.cshtml"
-using UnBank.Models;
+using UnBank.models;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"99464617055fdb505bb0bb7fd91f9b14f7b0d030", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6c8f17385fb92eb27e2331b2bae02748067ee110", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"812ac30d32a01cf9df83d9581800bb64199c5251", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

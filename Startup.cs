@@ -29,6 +29,8 @@ namespace UnBank
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //injeção do appsettings.json em outros locais da aplicação
+            services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -50,7 +52,7 @@ namespace UnBank
             services.AddCors();
             //configurações do autenticador JWT
             //a chave deve ter 16 caracteres segundo JWT
-            var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings: JWT_Key"].ToString());
+            var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:JWT_Secret"].ToString());
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -86,10 +88,11 @@ namespace UnBank
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.UseCors(builder => builder.WithOrigins(Configuration["ApplicationSettings: Client_Url"].ToString()).AllowAnyHeader().AllowAnyMethod());
+            //Cors, para ligar a aplicação frontend em angular com a API dotnet
+            app.UseCors(builder => builder.WithOrigins(Configuration["ApplicationSettings:Client_Url"].ToString()).AllowAnyHeader().AllowAnyMethod());
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
