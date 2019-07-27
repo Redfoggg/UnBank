@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using UnBank.models;
+using ServiceReference;
 
 namespace UnBank
 {
@@ -88,6 +89,14 @@ namespace UnBank
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            //Configuração da API externa dos correios para requisição SOAP
+            //CalcPrecoPrazoWSSoapClient
+            /*  app.Run(async (context) =>
+            {                
+                var client = new CalcPrecoPrazoWSSoapClient();
+                var response = await client.CalcPrecoPrazoAsync();
+                await context.Response.WriteAsync(response);
+            }); */
             //Cors, para ligar a aplicação frontend em angular com a API dotnet
             app.UseCors(builder => builder.WithOrigins(Configuration["ApplicationSettings:Client_Url"].ToString()).AllowAnyHeader().AllowAnyMethod());
             app.UseStaticFiles();
