@@ -27,7 +27,7 @@ namespace UnBank.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    N_Conta = table.Column<string>(maxLength: 256, nullable: true),
+                    Cpf = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
@@ -43,9 +43,9 @@ namespace UnBank.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
                     Nome = table.Column<string>(nullable: true),
-                    Cpf = table.Column<int>(nullable: true),
-                    Cep = table.Column<int>(nullable: true),
-                    Saldo = table.Column<int>(nullable: true)
+                    N_conta = table.Column<string>(nullable: true),
+                    Cep = table.Column<string>(nullable: true),
+                    Saldo = table.Column<decimal>(nullable: true)
                 },
                 constraints: table =>
                 {

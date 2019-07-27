@@ -100,7 +100,7 @@ namespace UnBank.Migrations
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
-                        .HasColumnName("N_Conta")
+                        .HasColumnName("Cpf")
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
@@ -190,9 +190,9 @@ namespace UnBank.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<long>("Cep");
+                    b.Property<string>("Cep");
 
-                    b.Property<long>("Cpf");
+                    b.Property<string>("N_conta");
 
                     b.Property<string>("Nome");
 

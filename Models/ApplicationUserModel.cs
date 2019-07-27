@@ -12,9 +12,10 @@ namespace UnBank.models
         public string Email  { get; set; }
         public string Senha { get; set; }
         public string Nome {get; set;}
-        public long Cpf {get; set;}
+        //perguntar
+        public string Cpf {get; set;}
         
-        public long Cep {get; set;}
+        public string Cep {get; set;}
         public string PhoneNumber  { get; set; }
         
         public string N_Conta = NumeroContaService.Gerar_N_Conta();

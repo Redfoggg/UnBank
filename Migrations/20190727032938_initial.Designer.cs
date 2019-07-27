@@ -10,7 +10,7 @@ using UnBank.models;
 namespace UnBank.Migrations
 {
     [DbContext(typeof(AuthenticationContext))]
-    [Migration("20190719181428_initial")]
+    [Migration("20190727032938_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -102,7 +102,7 @@ namespace UnBank.Migrations
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
-                        .HasColumnName("N_Conta")
+                        .HasColumnName("Cpf")
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
@@ -192,13 +192,13 @@ namespace UnBank.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<int>("Cep");
+                    b.Property<string>("Cep");
 
-                    b.Property<int>("Cpf");
+                    b.Property<string>("N_conta");
 
                     b.Property<string>("Nome");
 
-                    b.Property<int>("Saldo");
+                    b.Property<decimal>("Saldo");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

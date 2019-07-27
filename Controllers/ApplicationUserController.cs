@@ -33,12 +33,12 @@ namespace UnBank.Controllers
         {
             var applicationUser = new ApplicationUser()
             {
-                //UserName é tratado como numero da conta nesta aplicação.
-                UserName = model.N_Conta,
+                //UserName é tratado como Cpf nesta aplicação.
+                UserName = model.Cpf,
                 Email = model.Email,
                 Nome = model.Nome,
                 Cep = model.Cep,
-                Cpf = model.Cpf,
+                N_conta = model.N_Conta,
                 PhoneNumber = model.PhoneNumber
             };
             //password não é especificado aqui pois deve ser encriptado.
@@ -59,7 +59,7 @@ namespace UnBank.Controllers
         //POST: api/ApplicationUser/Login
         public async Task<IActionResult> Login(LoginModel model)
         {
-            var user = await _userManager.FindByNameAsync(model.N_Conta);
+            var user = await _userManager.FindByNameAsync(model.Cpf);
             //autenticação do usuário, verificação de usuário e senha.
             if(user != null &&await _userManager.CheckPasswordAsync(user, model.Senha))
             {

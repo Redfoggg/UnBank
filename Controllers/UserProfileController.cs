@@ -31,7 +31,10 @@ namespace UnBank.Controllers
             {
                 user.Nome,
                 user.Saldo,
-                user.UserName
+                user.UserName,
+                user.Cep,
+                user.N_conta,
+                user.PhoneNumber
             };
         }
     }

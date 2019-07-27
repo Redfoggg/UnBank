@@ -21,7 +21,7 @@ namespace UnBank.models
             //AspNetUsers -> N_Conta mudança de nome da tabela padrão do Identity, link https://docs.microsoft.com/pt-br/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-2.2
             builder.Entity<IdentityUser>(b =>
             {
-                b.Property(e => e.UserName).HasColumnName("N_Conta");
+                b.Property(e => e.UserName).HasColumnName("Cpf");
             });
         }
     }

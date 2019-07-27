@@ -10,9 +10,9 @@ namespace UnBank.models
     public class ApplicationUser : IdentityUser
     {
         public string Nome {get; set;}
-        public long Cpf {get; set;}
-        //public int N_conta {get; set;}
-        public long Cep {get; set;}
+        //public string Cpf {get; set;}
+        public string N_conta {get; set;}
+        public string Cep {get; set;}
         public decimal Saldo {get; set;}
     }
 }
